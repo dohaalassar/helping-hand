@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Hand - Emotional Support for Children</title>
+    <meta name="description" content="Helping Hand provides emotional support and monitoring for children aged 7-14 through an interactive mobile app and parent dashboard.">
+    <link rel="stylesheet" href="CSS/hand.css" />
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    /> 
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Helping Hand</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#about"><i class="fa-solid fa-hand-holding-heart"></i> About</a></li>
+                <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                <div class="nav-buttons">
+                    <a href="#download" class="btn btn-primary">Download App</a>
+                    <a href="/auth" class="btn btn-outline">Login</a>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Helping Hand – Emotional Support for Children</h1>
+                <p>Parents can monitor their children's emotional status through the web dashboard, while kids use the interactive mobile app to track moods and access mental health activities.</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">Get the Mobile App</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        <div class="hero-image">
+  <img src="images/Q1.png" alt="Helping Hand App Preview" class="hero-image-placeholder">
+</div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About the Platform</h2>
+            <div class="about-content">
+                <p>Helping Hand is designed specifically for children aged 7-14 years old, providing a safe and engaging environment for emotional wellness tracking and mental health support.</p>
+                <p>The mobile app allows children to log their daily moods, complete activities, and interact with a virtual counselor. All activity results are sent to the parent dashboard on the web, giving parents valuable insights into their children's emotional wellbeing.</p>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile App</h3>
+                    <p>Interactive activities and mood tracking designed for children</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Parent Dashboard</h3>
+                    <p>Monitor your child's emotional status and activity trends</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Virtual Support</h3>
+                    <p>AI-powered counselor for children's emotional guidance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Have questions about Helping Hand? We're here to help.</p>
+            <a href="mailto:support@helpinghand.example" class="contact-email">support@helpinghand.example</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Helping Hand. All rights reserved. Supporting children's mental health and emotional wellbeing.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll enhancement (optional visual feedback)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#download') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

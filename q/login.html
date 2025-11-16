@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Helping Hand</title>
+    <meta name="description" content="Login to Helping Hand parent dashboard to monitor your child's emotional wellbeing.">
+        <link rel="stylesheet" href="CSS/login.css" />
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+   
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <h1>Helping Hand</h1>
+            <p>Supporting Children's Mental Health</p>
+        </div>
+
+        <!-- Auth Card -->
+        <div class="auth-card">
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label for="login-email"><i class="fa-solid fa-envelope"></i> Email Address</label>
+                    <input 
+                        type="email" 
+                        id="login-email" 
+                        placeholder="your@email.com"
+                        required
+                    >
+                    <div class="error-message" id="login-email-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password"><i class="fa-solid fa-key"></i> Password</label>
+                    <input 
+                        type="password" 
+                        id="login-password" 
+                        placeholder="Enter your password"
+                        required
+                    >
+                    <div class="error-message" id="login-password-error"></div>
+                </div>
+
+                <div class="form-options">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Login to Dashboard
+                </button>
+
+                <div class="success-message" id="login-success"></div>
+                <div class="error-message" id="login-error"></div>
+            </form>
+
+            <!-- Signup Form -->
+            <form class="auth-form" id="signupForm">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="signup-name" 
+                        placeholder="John Doe"
+                        required
+                    >
+                    <div class="error-message" id="signup-name-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="signup-email" 
+                        placeholder="your@email.com"
+                        required
+                    >
+                    <div class="error-message" id="signup-email-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input 
+                        type="password" 
+                        id="signup-password" 
+                        placeholder="At least 8 characters"
+                        required
+                    >
+                    <div class="error-message" id="signup-password-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="signup-confirm-password" 
+                        placeholder="Re-enter your password"
+                        required
+                    >
+                    <div class="error-message" id="signup-confirm-error"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Create Account
+                </button>
+
+                <div class="success-message" id="signup-success"></div>
+                <div class="error-message" id="signup-error"></div>
+            </form>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <!-- Social Login -->
+            <div class="social-buttons">
+                <button class="btn-social" id="google-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M19.6 10.227c0-.709-.064-1.39-.182-2.045H10v3.868h5.382a4.6 4.6 0 01-1.996 3.018v2.51h3.232c1.891-1.742 2.982-4.305 2.982-7.35z" fill="#4285F4"/>
+                        <path d="M10 20c2.7 0 4.964-.895 6.618-2.423l-3.232-2.509c-.895.6-2.04.955-3.386.955-2.605 0-4.81-1.76-5.595-4.123H1.064v2.59A9.996 9.996 0 0010 20z" fill="#34A853"/>
+                        <path d="M4.405 11.9c-.2-.6-.314-1.24-.314-1.9 0-.66.114-1.3.314-1.9V5.51H1.064A9.996 9.996 0 000 10c0 1.614.386 3.14 1.064 4.49l3.34-2.59z" fill="#FBBC05"/>
+                        <path d="M10 3.977c1.468 0 2.786.505 3.823 1.496l2.868-2.868C14.959.99 12.695 0 10 0 6.09 0 2.71 2.24 1.064 5.51l3.34 2.59C5.19 5.736 7.395 3.977 10 3.977z" fill="#EA4335"/>
+                    </svg>
+                    Google
+                </button>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="/landing.html">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const forms = document.querySelectorAll('.auth-form');
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.dataset.tab;
+                
+                // Update active tab
+                tabButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show target form
+                forms.forEach(form => {
+                    form.classList.remove('active');
+                    if (form.id === `${targetTab}Form`) {
+                        form.classList.add('active');
+                    }
+                });
+
+                // Clear all messages
+                clearAllMessages();
+            });
+        });
+
+        // Login Form Handler
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearAllMessages();
+
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Basic validation
+            if (!validateEmail(email)) {
+                showError('login-email-error', 'Please enter a valid email address');
+                return;
+            }
+
+            if (password.length < 6) {
+                showError('login-password-error', 'Password must be at least 6 characters');
+                return;
+            }
+
+            // Simulate login (replace with actual API call)
+            showSuccess('login-success', 'Login successful! Redirecting...');
+            setTimeout(() => {
+                window.location.href = '/'; // Redirect to dashboard
+            }, 1500);
+        });
+
+        // Signup Form Handler
+        const signupForm = document.getElementById('signupForm');
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearAllMessages();
+
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+            // Validation
+            if (name.trim().length < 2) {
+                showError('signup-name-error', 'Please enter your full name');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showError('signup-email-error', 'Please enter a valid email address');
+                return;
+            }
+
+            if (password.length < 8) {
+                showError('signup-password-error', 'Password must be at least 8 characters');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showError('signup-confirm-error', 'Passwords do not match');
+                return;
+            }
+
+            // Simulate signup (replace with actual API call)
+            showSuccess('signup-success', 'Account created successfully! Redirecting...');
+            setTimeout(() => {
+                window.location.href = '/'; // Redirect to dashboard
+            }, 1500);
+        });
+
+        // Google Sign In
+        document.getElementById('google-btn').addEventListener('click', () => {
+            clearAllMessages();
+            // Add Google OAuth logic here
+            alert('Google Sign-In integration coming soon!');
+        });
+
+        // Helper Functions
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.classList.add('show');
+        }
+
+        function showSuccess(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.classList.add('show');
+        }
+
+        function clearAllMessages() {
+            const messages = document.querySelectorAll('.error-message, .success-message');
+            messages.forEach(msg => {
+                msg.textContent = '';
+                msg.classList.remove('show');
+            });
+        }
+
+        // Clear error on input
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const errorElement = input.parentElement.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
